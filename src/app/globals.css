@@ -117,5 +117,13 @@
   }
   body {
     @apply bg-background text-foreground;
+    transition: padding-left 250ms ease;
+  }
+
+  /* On md+ screens, when primary sidebar is open, push content to the right */
+  @media (min-width: 1024px) {
+    body.primary-sidebar-open {
+      padding-left: 212px; /* match md sidebar width */
+    }
   }
 }

@@ -19,6 +19,7 @@ import {
 } from "../ui/breadcrumb"
 import { Input } from "../ui/input"
 import { ModeToggle } from "../dark-mode-toggle"
+import Sidebar from "./sidebar"
 
 const iconHover = {
   whileHover: { y: -1, scale: 1.05 },
@@ -29,11 +30,16 @@ const Navbar = () => {
   const [isMobileSearchOpen, setMobileSearchOpen] = useState(false)
   const [isSearchFocused, setSearchFocused] = useState(false)
 
+  const [isPrimarySidebarOpen, setPrimarySidebarOpen] = useState(false)
+  const closePrimarySidebar = useCallback(() => setPrimarySidebarOpen(false), [])
+  const togglePrimarySidebar = useCallback(() => setPrimarySidebarOpen((v) => !v), [])
+
   const toggleMobileSearch = useCallback(() => {
     setMobileSearchOpen((v) => !v)
   }, [])
 
   return (
+    <>
     <motion.nav
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -46,6 +52,8 @@ const Navbar = () => {
           <motion.button
             aria-label="Toggle sidebar"
             className="rounded-md p-2 hover:bg-muted/60"
+            onClick={togglePrimarySidebar}
+            aria-expanded={isPrimarySidebarOpen}
             {...iconHover}
           >
             <SidebarIcon strokeWidth={1} className="size-5 md:size-5" />
@@ -59,7 +67,7 @@ const Navbar = () => {
             <StarIcon
               strokeWidth={1}
               className="size-5 text-muted-foreground/80"
-            />
+              />
           </motion.button>
 
           <motion.div
@@ -82,7 +90,6 @@ const Navbar = () => {
             </Breadcrumb>
           </motion.div>
         </div>
-
         {/* Right: search, actions */}
         <div className="flex items-center gap-1.5">
           {/* Desktop search (animated width) */}
@@ -152,12 +159,12 @@ const Navbar = () => {
       <AnimatePresence initial={false}>
         {isMobileSearchOpen && (
           <motion.div
-            key="mobile-search"
-            initial={{ height: 0, opacity: 0, y: -6 }}
-            animate={{ height: "auto", opacity: 1, y: 0 }}
-            exit={{ height: 0, opacity: 0, y: -6 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="md:hidden"
+          key="mobile-search"
+          initial={{ height: 0, opacity: 0, y: -6 }}
+          animate={{ height: "auto", opacity: 1, y: 0 }}
+          exit={{ height: 0, opacity: 0, y: -6 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          className="md:hidden"
           >
             <div className="relative mt-2">
               <div className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground">
@@ -171,13 +178,15 @@ const Navbar = () => {
                 autoFocus
                 onKeyDown={(e) => {
                   if (e.key === "Escape") setMobileSearchOpen(false)
-                }}
-              />
+                  }}
+                />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.nav>
+    <Sidebar open={isPrimarySidebarOpen} onClose={closePrimarySidebar} />
+    </>
   )
 }
 
