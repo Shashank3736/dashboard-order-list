@@ -120,10 +120,12 @@
     transition: padding-left 250ms ease;
   }
 
-  /* On md+ screens, when primary sidebar is open, push content to the right */
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
     body.primary-sidebar-open {
-      padding-left: 212px; /* match md sidebar width */
+      padding-left: 212px;
+    }
+    body.secondary-sidebar-open {
+      padding-right: 280px;
     }
   }
 }

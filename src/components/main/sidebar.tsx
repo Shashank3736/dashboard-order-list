@@ -162,7 +162,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
   }, [open, onClose])
 
   useEffect(() => {
-    const isMdUp = typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches
+    const isMdUp = typeof window !== 'undefined' && window.matchMedia('(min-width: 1280px)').matches
     if (isMdUp && open) {
       document.body.classList.add('primary-sidebar-open')
     } else {
@@ -183,7 +183,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 z-40 bg-background/60 backdrop-blur-[2px] lg:hidden"
+            className="fixed inset-0 z-40 bg-background/60 backdrop-blur-[2px] xl:hidden"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -198,7 +198,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', stiffness: 280, damping: 30 }}
-            className="fixed left-0 top-0 z-50 h-screen w-[85vw] max-w-[320px] md:w-[212px] md:max-w-none bg-background border-r shadow-xl md:shadow-none"
+            className="fixed left-0 top-0 z-50 h-screen w-[85vw] max-w-[320px] xl:w-[212px] xl:max-w-none bg-background border-r shadow-xl xl:shadow-none"
           >
             <div className="h-full overflow-y-auto px-4 py-5 space-y-6">
               <div className='flex gap-2 items-center'>

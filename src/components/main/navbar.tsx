@@ -20,6 +20,7 @@ import {
 import { Input } from "../ui/input"
 import { ModeToggle } from "../dark-mode-toggle"
 import Sidebar from "./sidebar"
+import LeftSidebar from "./left-sidebar"
 
 const iconHover = {
   whileHover: { y: -1, scale: 1.05 },
@@ -33,6 +34,10 @@ const Navbar = () => {
   const [isPrimarySidebarOpen, setPrimarySidebarOpen] = useState(false)
   const closePrimarySidebar = useCallback(() => setPrimarySidebarOpen(false), [])
   const togglePrimarySidebar = useCallback(() => setPrimarySidebarOpen((v) => !v), [])
+
+  const [isSecondarySidebarOpen, setSecondarySidebarOpen] = useState(false)
+  const closeSecondarySidebar = useCallback(() => setSecondarySidebarOpen(false), [])
+  const toggleSecondarySidebar = useCallback(() => setSecondarySidebarOpen((v) => !v), [])
 
   const toggleMobileSearch = useCallback(() => {
     setMobileSearchOpen((v) => !v)
@@ -125,7 +130,7 @@ const Navbar = () => {
             <SearchIcon className="size-5" />
           </motion.button>
 
-          <motion.div {...iconHover} className="hidden md:block">
+          <motion.div {...iconHover}>
             <ModeToggle />
           </motion.div>
           <motion.button
@@ -148,6 +153,8 @@ const Navbar = () => {
           <motion.button
             aria-label="Secondary sidebar"
             className="rounded-md p-2 hover:bg-muted/60"
+            onClick={toggleSecondarySidebar}
+            aria-expanded={isSecondarySidebarOpen}
             {...iconHover}
           >
             <SidebarIcon strokeWidth={1} className="size-5" />
@@ -186,6 +193,7 @@ const Navbar = () => {
       </AnimatePresence>
     </motion.nav>
     <Sidebar open={isPrimarySidebarOpen} onClose={closePrimarySidebar} />
+    <LeftSidebar open={isSecondarySidebarOpen} onClose={closeSecondarySidebar} />
     </>
   )
 }
