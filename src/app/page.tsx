@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main className="p-4">
       <p className="pb-4 font-medium">eCommerce</p>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-7">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
         {data ? (
           <Result data={data} />
         ): (

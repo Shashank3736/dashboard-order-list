@@ -43,7 +43,7 @@ export const RevenueAreaChart: React.FC<RevenueAreaChartProps> = ({ data }) => {
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-6 text-lg font-medium">
           Revenue
-          <div className="flex items-center gap-6 text-sm font-normal">
+          <div className="flex flex-col md:flex-row items-center gap-6 text-sm font-normal">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-chart-1"></div>
               <span>Current Week</span>
@@ -90,7 +90,7 @@ export const RevenueAreaChart: React.FC<RevenueAreaChartProps> = ({ data }) => {
               domain={[0, 30]}
               ticks={[0, 10, 20, 30]}
             />
-            <ChartTooltip content={<ChartTooltipContent />} />
+            <ChartTooltip content={<ChartTooltipContent />} />  
             <Line
               dataKey="currentWeek"
               type="monotone"

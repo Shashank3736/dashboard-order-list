@@ -4,17 +4,11 @@ import { StatCard } from "./stat-card"
 import { ChartBarStacked } from './mini-bar-chart';
 import { RevenueAreaChart } from './revenue-area-chart';
 import { RevenueByLocation } from './revenue-by-location';
+import { ChartPieDonut } from './donut';
 
 type ResultProps = {
   data: DashboardData;
 };
-
-/**
- * Lightweight widgets and SVG charts to visually match the provided dashboard.
- * This component renders multiple grid items that participate in the parent grid.
- * page.tsx wraps Result inside "grid grid-cols-4 grid-rows-4", so we use "contents"
- * to let each card act as a direct grid child.
- */
 
 const TopSellingTable = ({
   rows,
@@ -57,79 +51,6 @@ const TopSellingTable = ({
   );
 };
 
-const Donut = ({ segments }: { segments: Array<{ type: string; amount: number }> }) => {
-  const total = segments.reduce((a, b) => a + b.amount, 0);
-  
-  const colors = [
-    '#7dd3fc',
-    '#86efac',  
-    '#a78bfa',
-    '#1f2937',
-  ] as const;
-  
-  const size = 200;
-  const r = 75;
-  const strokeWidth = 20;
-  const c = 2 * Math.PI * r;
-
-  let offset = 0;
-
-  return (
-    <div className="rounded-xl border bg-card p-6 shadow-sm w-full h-full">
-      <h3 className="text-lg font-semibold mb-6">Total Sales</h3>
-      <div className="flex flex-col items-center">
-        {/* Donut Chart */}
-        <div className="relative mb-6">
-          <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="shrink-0">
-            <g transform={`translate(${size / 2}, ${size / 2})`}>
-              {segments.map((s, i) => {
-                const portion = s.amount / total;
-                const strokeDasharray = `${portion * c} ${c}`;
-                const el = (
-                  <circle
-                    key={s.type}
-                    r={r}
-                    fill="none"
-                    stroke={colors[i % colors.length]}
-                    strokeWidth={strokeWidth}
-                    strokeDasharray={strokeDasharray}
-                    strokeDashoffset={-offset}
-                    transform="rotate(-90)"
-                    strokeLinecap="round"
-                  />
-                );
-                offset += portion * c;
-                return el;
-              })}
-            </g>
-          </svg>
-        </div>
-        
-        {/* Legend */}
-        <div className="space-y-3 w-full">
-          {segments.map((s, i) => (
-            <div key={s.type} className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div
-                  className="w-3 h-3 rounded-full"
-                  style={{ backgroundColor: colors[i % colors.length] }}
-                />
-                <span className="text-sm">{s.type}</span>
-              </div>
-              <span className="font-medium text-sm">
-                ${s.amount.toLocaleString('en-US', {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const Result: React.FC<ResultProps> = ({ data }) => {
   return (
     <div className="contents">
@@ -146,7 +67,7 @@ const Result: React.FC<ResultProps> = ({ data }) => {
       </div>
 
       {/* Projections vs Actuals top-right big card */}
-      <div className="col-span-2 row-span-2">
+      <div className="col-span-1 md:col-span-2 row-span-2">
         <ChartBarStacked data={data.projectionsVsActuals} />
       </div>
 
@@ -163,7 +84,7 @@ const Result: React.FC<ResultProps> = ({ data }) => {
       </div>
 
       {/* Revenue line chart - big wide card */}
-      <div className="col-span-2 lg:col-span-3 row-span-2">
+      <div className="col-span-1 md:col-span-2 lg:col-span-3 row-span-2">
         <RevenueAreaChart data={data.revenueWeekly} />
       </div>
 
@@ -172,14 +93,21 @@ const Result: React.FC<ResultProps> = ({ data }) => {
         <RevenueByLocation locations={data.revenueByLocation.locations} />
       </div>
 
+      {/* Total Sales donut */}
+      <div className="col-span-1 row-span-2 lg:hidden">
+        {/* <Donut segments={data.totalSales.segments} /> */}
+        <ChartPieDonut segments={data.totalSales.segments} />
+      </div>
+
       {/* Top Selling Products */}
-      <div className="col-span-2 lg:col-span-3 row-span-2">
+      <div className="col-span-1 md:col-span-2 lg:col-span-3 row-span-2">
         <TopSellingTable rows={data.topSellingProducts} />
       </div>
 
       {/* Total Sales donut */}
-      <div className="col-span-1 row-span-2">
-        <Donut segments={data.totalSales.segments} />
+      <div className="col-span-1 row-span-2 hidden lg:block">
+        {/* <Donut segments={data.totalSales.segments} /> */}
+        <ChartPieDonut segments={data.totalSales.segments} />
       </div>
     </div>
   );
