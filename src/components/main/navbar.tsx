@@ -21,6 +21,7 @@ import { Input } from "../ui/input"
 import { ModeToggle } from "../dark-mode-toggle"
 import Sidebar from "./sidebar"
 import LeftSidebar from "./left-sidebar"
+import { useRouter } from "next/navigation"
 
 const iconHover = {
   whileHover: { y: -1, scale: 1.05 },
@@ -28,6 +29,7 @@ const iconHover = {
 }
 
 const Navbar = () => {
+  const router = useRouter();
   const [isMobileSearchOpen, setMobileSearchOpen] = useState(false)
   const [isSearchFocused, setSearchFocused] = useState(false)
 
@@ -134,8 +136,9 @@ const Navbar = () => {
             <ModeToggle />
           </motion.div>
           <motion.button
-            aria-label="Recent activity"
+            aria-label="Refresh"
             className="rounded-md p-2 hover:bg-muted/60"
+            onClick={() => router.refresh()}
             {...iconHover}
           >
             <ClockFadingIcon strokeWidth={1} className="size-5" />

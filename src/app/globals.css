@@ -120,6 +120,11 @@
   body {
     @apply bg-background text-foreground;
     transition: padding 250ms ease;
+    scrollbar-gutter: stable;
+  }
+
+  html {
+    overflow-y: scroll;
   }
 
   @media (min-width: 1280px) {

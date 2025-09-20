@@ -13,7 +13,10 @@ export type Activity = {
 }
 
 export type Order = {
-  user: number;
+  user: {
+    name: string;
+    profile: string;
+  };
   id: string;
   project: string;
   address: string;
@@ -213,3 +216,501 @@ export const dashboardData: DashboardData = {
     ]
   }
 };
+
+export const orders:Order[] = [
+  {
+    user: {
+      name: "Natali Craig",
+      profile: "https://avatar.iran.liara.run/public/girl?username=natali-craig"
+    },
+    id: "ORD-1001",
+    project: "Website Redesign",
+    address: "123 Main St, New York, NY",
+    date: new Date("2024-06-01"),
+    status: "In Progress"
+  },
+  {
+    user: {
+      name: "Drew Cano",
+      profile: "https://avatar.iran.liara.run/public/boy?username=drew-cano"
+    },
+    id: "ORD-1002",
+    project: "Mobile App",
+    address: "456 Oak Ave, San Francisco, CA",
+    date: new Date("2024-06-02"),
+    status: "Complete"
+  },
+  {
+    user: {
+      name: "Orlando Digs",
+      profile: "https://avatar.iran.liara.run/public/boy?username=orlando-digs"
+    },
+    id: "ORD-1003",
+    project: "E-commerce Platform",
+    address: "789 Pine Rd, Sydney, AU",
+    date: new Date("2024-06-03"),
+    status: "Pending"
+  },
+  {
+    user: {
+      name: "Andi Lane",
+      profile: "https://avatar.iran.liara.run/public/girl?username=andi-lane"
+    },
+    id: "ORD-1004",
+    project: "Marketing Dashboard",
+    address: "321 Maple St, Singapore",
+    date: new Date("2024-06-04"),
+    status: "Approved"
+  },
+  {
+    user: {
+      name: "Kate Morrison",
+      profile: "https://avatar.iran.liara.run/public/girl?username=kate-morrison"
+    },
+    id: "ORD-1005",
+    project: "Analytics Tool",
+    address: "654 Cedar Ave, London, UK",
+    date: new Date("2024-06-05"),
+    status: "Rejected"
+  },
+  {
+    user: {
+      name: "Koray Okumus",
+      profile: "https://avatar.iran.liara.run/public/boy?username=koray-okumus"
+    },
+    id: "ORD-1006",
+    project: "CRM Integration",
+    address: "987 Birch Rd, Berlin, DE",
+    date: new Date("2024-06-06"),
+    status: "In Progress"
+  },
+  {
+    user: {
+      name: "Natali Craig",
+      profile: "https://avatar.iran.liara.run/public/girl?username=natali-craig"
+    },
+    id: "ORD-1007",
+    project: "SEO Optimization",
+    address: "123 Main St, New York, NY",
+    date: new Date("2024-06-07"),
+    status: "Complete"
+  },
+  {
+    user: {
+      name: "Drew Cano",
+      profile: "https://avatar.iran.liara.run/public/boy?username=drew-cano"
+    },
+    id: "ORD-1008",
+    project: "Landing Page",
+    address: "456 Oak Ave, San Francisco, CA",
+    date: new Date("2024-06-08"),
+    status: "Pending"
+  },
+  {
+    user: {
+      name: "Orlando Digs",
+      profile: "https://avatar.iran.liara.run/public/boy?username=orlando-digs"
+    },
+    id: "ORD-1009",
+    project: "Payment Gateway",
+    address: "789 Pine Rd, Sydney, AU",
+    date: new Date("2024-06-09"),
+    status: "Approved"
+  },
+  {
+    user: {
+      name: "Andi Lane",
+      profile: "https://avatar.iran.liara.run/public/girl?username=andi-lane"
+    },
+    id: "ORD-1010",
+    project: "Blog Platform",
+    address: "321 Maple St, Singapore",
+    date: new Date("2024-06-10"),
+    status: "Rejected"
+  },
+  {
+    user: {
+      name: "Kate Morrison",
+      profile: "https://avatar.iran.liara.run/public/girl?username=kate-morrison"
+    },
+    id: "ORD-1011",
+    project: "Inventory System",
+    address: "654 Cedar Ave, London, UK",
+    date: new Date("2024-06-11"),
+    status: "In Progress"
+  },
+  {
+    user: {
+      name: "Koray Okumus",
+      profile: "https://avatar.iran.liara.run/public/boy?username=koray-okumus"
+    },
+    id: "ORD-1012",
+    project: "HR Portal",
+    address: "987 Birch Rd, Berlin, DE",
+    date: new Date("2024-06-12"),
+    status: "Complete"
+  },
+  {
+    user: {
+      name: "Natali Craig",
+      profile: "https://avatar.iran.liara.run/public/girl?username=natali-craig"
+    },
+    id: "ORD-1013",
+    project: "Customer Support",
+    address: "123 Main St, New York, NY",
+    date: new Date("2024-06-13"),
+    status: "Pending"
+  },
+  {
+    user: {
+      name: "Drew Cano",
+      profile: "https://avatar.iran.liara.run/public/boy?username=drew-cano"
+    },
+    id: "ORD-1014",
+    project: "Email Campaign",
+    address: "456 Oak Ave, San Francisco, CA",
+    date: new Date("2024-06-14"),
+    status: "Approved"
+  },
+  {
+    user: {
+      name: "Orlando Digs",
+      profile: "https://avatar.iran.liara.run/public/boy?username=orlando-digs"
+    },
+    id: "ORD-1015",
+    project: "Survey Tool",
+    address: "789 Pine Rd, Sydney, AU",
+    date: new Date("2024-06-15"),
+    status: "Rejected"
+  },
+  {
+    user: {
+      name: "Andi Lane",
+      profile: "https://avatar.iran.liara.run/public/girl?username=andi-lane"
+    },
+    id: "ORD-1016",
+    project: "Booking System",
+    address: "321 Maple St, Singapore",
+    date: new Date("2024-06-16"),
+    status: "In Progress"
+  },
+  {
+    user: {
+      name: "Kate Morrison",
+      profile: "https://avatar.iran.liara.run/public/girl?username=kate-morrison"
+    },
+    id: "ORD-1017",
+    project: "Chatbot",
+    address: "654 Cedar Ave, London, UK",
+    date: new Date("2024-06-17"),
+    status: "Complete"
+  },
+  {
+    user: {
+      name: "Koray Okumus",
+      profile: "https://avatar.iran.liara.run/public/boy?username=koray-okumus"
+    },
+    id: "ORD-1018",
+    project: "API Development",
+    address: "987 Birch Rd, Berlin, DE",
+    date: new Date("2024-06-18"),
+    status: "Pending"
+  },
+  {
+    user: {
+      name: "Natali Craig",
+      profile: "https://avatar.iran.liara.run/public/girl?username=natali-craig"
+    },
+    id: "ORD-1019",
+    project: "File Storage",
+    address: "123 Main St, New York, NY",
+    date: new Date("2024-06-19"),
+    status: "Approved"
+  },
+  {
+    user: {
+      name: "Drew Cano",
+      profile: "https://avatar.iran.liara.run/public/boy?username=drew-cano"
+    },
+    id: "ORD-1020",
+    project: "Video Streaming",
+    address: "456 Oak Ave, San Francisco, CA",
+    date: new Date("2024-06-20"),
+    status: "Rejected"
+  },
+  {
+    user: {
+      name: "Orlando Digs",
+      profile: "https://avatar.iran.liara.run/public/boy?username=orlando-digs"
+    },
+    id: "ORD-1021",
+    project: "Forum Platform",
+    address: "789 Pine Rd, Sydney, AU",
+    date: new Date("2024-06-21"),
+    status: "In Progress"
+  },
+  {
+    user: {
+      name: "Andi Lane",
+      profile: "https://avatar.iran.liara.run/public/girl?username=andi-lane"
+    },
+    id: "ORD-1022",
+    project: "Learning Portal",
+    address: "321 Maple St, Singapore",
+    date: new Date("2024-06-22"),
+    status: "Complete"
+  },
+  {
+    user: {
+      name: "Kate Morrison",
+      profile: "https://avatar.iran.liara.run/public/girl?username=kate-morrison"
+    },
+    id: "ORD-1023",
+    project: "Event Management",
+    address: "654 Cedar Ave, London, UK",
+    date: new Date("2024-06-23"),
+    status: "Pending"
+  },
+  {
+    user: {
+      name: "Koray Okumus",
+      profile: "https://avatar.iran.liara.run/public/boy?username=koray-okumus"
+    },
+    id: "ORD-1024",
+    project: "Document Editor",
+    address: "987 Birch Rd, Berlin, DE",
+    date: new Date("2024-06-24"),
+    status: "Approved"
+  },
+  {
+    user: {
+      name: "Natali Craig",
+      profile: "https://avatar.iran.liara.run/public/girl?username=natali-craig"
+    },
+    id: "ORD-1025",
+    project: "Photo Gallery",
+    address: "123 Main St, New York, NY",
+    date: new Date("2024-06-25"),
+    status: "Rejected"
+  },
+  {
+    user: {
+      name: "Drew Cano",
+      profile: "https://avatar.iran.liara.run/public/boy?username=drew-cano"
+    },
+    id: "ORD-1026",
+    project: "Fitness Tracker",
+    address: "456 Oak Ave, San Francisco, CA",
+    date: new Date("2024-06-26"),
+    status: "In Progress"
+  },
+  {
+    user: {
+      name: "Orlando Digs",
+      profile: "https://avatar.iran.liara.run/public/boy?username=orlando-digs"
+    },
+    id: "ORD-1027",
+    project: "Recipe App",
+    address: "789 Pine Rd, Sydney, AU",
+    date: new Date("2024-06-27"),
+    status: "Complete"
+  },
+  {
+    user: {
+      name: "Andi Lane",
+      profile: "https://avatar.iran.liara.run/public/girl?username=andi-lane"
+    },
+    id: "ORD-1028",
+    project: "Travel Planner",
+    address: "321 Maple St, Singapore",
+    date: new Date("2024-06-28"),
+    status: "Pending"
+  },
+  {
+    user: {
+      name: "Kate Morrison",
+      profile: "https://avatar.iran.liara.run/public/girl?username=kate-morrison"
+    },
+    id: "ORD-1029",
+    project: "Music Streaming",
+    address: "654 Cedar Ave, London, UK",
+    date: new Date("2024-06-29"),
+    status: "Approved"
+  },
+  {
+    user: {
+      name: "Koray Okumus",
+      profile: "https://avatar.iran.liara.run/public/boy?username=koray-okumus"
+    },
+    id: "ORD-1030",
+    project: "News Aggregator",
+    address: "987 Birch Rd, Berlin, DE",
+    date: new Date("2024-06-30"),
+    status: "Rejected"
+  },
+  {
+    user: {
+      name: "Natali Craig",
+      profile: "https://avatar.iran.liara.run/public/girl?username=natali-craig"
+    },
+    id: "ORD-1031",
+    project: "Weather App",
+    address: "123 Main St, New York, NY",
+    date: new Date("2024-07-01"),
+    status: "In Progress"
+  },
+  {
+    user: {
+      name: "Drew Cano",
+      profile: "https://avatar.iran.liara.run/public/boy?username=drew-cano"
+    },
+    id: "ORD-1032",
+    project: "Expense Tracker",
+    address: "456 Oak Ave, San Francisco, CA",
+    date: new Date("2024-07-02"),
+    status: "Complete"
+  },
+  {
+    user: {
+      name: "Orlando Digs",
+      profile: "https://avatar.iran.liara.run/public/boy?username=orlando-digs"
+    },
+    id: "ORD-1033",
+    project: "Time Management",
+    address: "789 Pine Rd, Sydney, AU",
+    date: new Date("2024-07-03"),
+    status: "Pending"
+  },
+  {
+    user: {
+      name: "Andi Lane",
+      profile: "https://avatar.iran.liara.run/public/girl?username=andi-lane"
+    },
+    id: "ORD-1034",
+    project: "Note Taking",
+    address: "321 Maple St, Singapore",
+    date: new Date("2024-07-04"),
+    status: "Approved"
+  },
+  {
+    user: {
+      name: "Kate Morrison",
+      profile: "https://avatar.iran.liara.run/public/girl?username=kate-morrison"
+    },
+    id: "ORD-1035",
+    project: "Mind Mapping",
+    address: "654 Cedar Ave, London, UK",
+    date: new Date("2024-07-05"),
+    status: "Rejected"
+  },
+  {
+    user: {
+      name: "Koray Okumus",
+      profile: "https://avatar.iran.liara.run/public/boy?username=koray-okumus"
+    },
+    id: "ORD-1036",
+    project: "Kanban Board",
+    address: "987 Birch Rd, Berlin, DE",
+    date: new Date("2024-07-06"),
+    status: "In Progress"
+  },
+  {
+    user: {
+      name: "Natali Craig",
+      profile: "https://avatar.iran.liara.run/public/girl?username=natali-craig"
+    },
+    id: "ORD-1037",
+    project: "Personal Blog",
+    address: "123 Main St, New York, NY",
+    date: new Date("2024-07-07"),
+    status: "Complete"
+  },
+  {
+    user: {
+      name: "Drew Cano",
+      profile: "https://avatar.iran.liara.run/public/boy?username=drew-cano"
+    },
+    id: "ORD-1038",
+    project: "Portfolio Website",
+    address: "456 Oak Ave, San Francisco, CA",
+    date: new Date("2024-07-08"),
+    status: "Pending"
+  },
+  {
+    user: {
+      name: "Orlando Digs",
+      profile: "https://avatar.iran.liara.run/public/boy?username=orlando-digs"
+    },
+    id: "ORD-1039",
+    project: "Resume Builder",
+    address: "789 Pine Rd, Sydney, AU",
+    date: new Date("2024-07-09"),
+    status: "Approved"
+  },
+  {
+    user: {
+      name: "Andi Lane",
+      profile: "https://avatar.iran.liara.run/public/girl?username=andi-lane"
+    },
+    id: "ORD-1040",
+    project: "Job Board",
+    address: "321 Maple St, Singapore",
+    date: new Date("2024-07-10"),
+    status: "Rejected"
+  },
+  {
+    user: {
+      name: "Kate Morrison",
+      profile: "https://avatar.iran.liara.run/public/girl?username=kate-morrison"
+    },
+    id: "ORD-1041",
+    project: "Freelance Platform",
+    address: "654 Cedar Ave, London, UK",
+    date: new Date("2024-07-11"),
+    status: "In Progress"
+  },
+  {
+    user: {
+      name: "Koray Okumus",
+      profile: "https://avatar.iran.liara.run/public/boy?username=koray-okumus"
+    },
+    id: "ORD-1042",
+    project: "Online Store",
+    address: "987 Birch Rd, Berlin, DE",
+    date: new Date("2024-07-12"),
+    status: "Complete"
+  },
+  {
+    user: {
+      name: "Natali Craig",
+      profile: "https://avatar.iran.liara.run/public/girl?username=natali-craig"
+    },
+    id: "ORD-1043",
+    project: "Donation Platform",
+    address: "123 Main St, New York, NY",
+    date: new Date("2024-07-13"),
+    status: "Pending"
+  },
+  {
+    user: {
+      name: "Drew Cano",
+      profile: "https://avatar.iran.liara.run/public/boy?username=drew-cano"
+    },
+    id: "ORD-1044",
+    project: "Crowdfunding",
+    address: "456 Oak Ave, San Francisco, CA",
+    date: new Date("2024-07-14"),
+    status: "Approved"
+  },
+  {
+    user: {
+      name: "Orlando Digs",
+      profile: "https://avatar.iran.liara.run/public/boy?username=orlando-digs"
+    },
+    id: "ORD-1045",
+    project: "Auction Site",
+    address: "789 Pine Rd, Sydney, AU",
+    date: new Date("2024-07-15"),
+    status: "Rejected"
+  }
+]

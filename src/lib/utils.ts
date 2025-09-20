@@ -8,20 +8,18 @@ export function cn(...inputs: ClassValue[]) {
 
 export function getReadableTime(time: Date) {
   const now = new Date();
-  let readableTime: string;
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const daysDiff = Math.floor((now.getTime() - time.getTime()) / msPerDay);
 
-  // If same day, show exact time, else show relative
-  if (
-    time.toDateString() === now.toDateString()
-  ) {
-    readableTime = `Today, ${format(time, "hh:mm a")}`;
-  } else {
-    readableTime = formatDistanceToNow(time, {
-      addSuffix: true,
-    });
+  if (time.toDateString() === now.toDateString()) {
+    return `Today, ${format(time, "hh:mm a")}`;
   }
 
-  return readableTime;
+  if (daysDiff > 7) {
+    return format(time, "MMM d, yyyy");
+  }
+
+  return formatDistanceToNow(time, { addSuffix: true });
 }
 
 export const shortifyText = (text: string, max_length=28):string => {

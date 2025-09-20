@@ -76,7 +76,7 @@ const dashboardItems:CollapsibleItemProps[] = [
     title: 'eCommerce',
     icon: <ECommerceIcon />,
     childs: [
-      { text: 'Commerce 1', href: '#'},
+      { text: 'Orders', href: '/orders'},
       { text: 'Commerce 2', href: '#'},
       { text: 'Commerce 3', href: '#'}
     ]
