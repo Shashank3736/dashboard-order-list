@@ -1,6 +1,6 @@
 "use server";
 
-import { activities, getUsers } from "./data";
+import { activities, dashboardData, getUsers } from "./data";
 import { getReadableTime } from "./utils";
 
 export type NotificationType = {
@@ -88,4 +88,8 @@ export async function getActivities():Promise<AcitivitiesResultType[]> {
   });
 
   return activitiesWithProfile;
+}
+
+export async function getDashboardData() {
+  return dashboardData;
 }
