@@ -21,6 +21,7 @@ import { Input } from "../ui/input"
 import { ModeToggle } from "../dark-mode-toggle"
 import Sidebar from "./sidebar"
 import LeftSidebar from "./left-sidebar"
+import Notifications from "./notifications"
 import { useRouter } from "next/navigation"
 
 const iconHover = {
@@ -143,16 +144,7 @@ const Navbar = () => {
           >
             <ClockFadingIcon strokeWidth={1} className="size-5" />
           </motion.button>
-          <motion.button
-            aria-label="Notifications"
-            className="rounded-md p-2 hover:bg-muted/60"
-            {...iconHover}
-          >
-            <BellIcon
-              strokeWidth={1}
-              className="size-5 text-muted-foreground/80"
-            />
-          </motion.button>
+          <Notifications />
           <motion.button
             aria-label="Secondary sidebar"
             className="rounded-md p-2 hover:bg-muted/60"
