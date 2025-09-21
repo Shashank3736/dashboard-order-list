@@ -4,7 +4,7 @@ A modern, responsive eCommerce dashboard application built with Next.js 15, Reac
 
 Live Link: https://dashboard-order-list.vercel.app/
 
-## 🚀 Features
+## Features
 
 - **Modern Dashboard**: Clean, responsive interface with comprehensive data visualization
 - **Order Management**: Complete order tracking with status management and user profiles
@@ -14,7 +14,7 @@ Live Link: https://dashboard-order-list.vercel.app/
 - **Accessibility**: Built with accessibility best practices using Radix UI primitives
 - **Performance Optimized**: Turbopack for fast builds and hot module replacement
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Core Framework
 - **Next.js 15.5.3** with App Router architecture
@@ -35,7 +35,7 @@ Live Link: https://dashboard-order-list.vercel.app/
 - **Recharts** for data visualization and charts
 - **clsx** and **tailwind-merge** for conditional styling
 
-## 📦 Installation
+## Installation
 
 Follow these steps from the project root:
 
@@ -62,7 +62,7 @@ npm run start
 
 The app will be available at http://localhost:3000
 
-## 🏃‍♂️ Development
+## Development
 
 ### Available Scripts
 
@@ -79,7 +79,7 @@ npm run dev
 ```
 Starts the development server with Turbopack for fast hot module replacement.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -123,7 +123,7 @@ src/
 │   └── utils.ts            # Common utilities and helpers
 ```
 
-## 🧩 Core Components
+## Core Components
 
 ### Navigation Components
 
@@ -168,7 +168,7 @@ All UI components follow the shadcn/ui design system:
 - **Customizable variants** with class-variance-authority
 - **Dark/light theme** support
 
-## 📊 Data Management
+## Data Management
 
 ### Data Models (`src/lib/data.ts`)
 
@@ -217,7 +217,7 @@ interface DashboardData {
 - **`getReadableTime()`**: Formats dates into human-readable strings
 - **`shortifyText()`**: Method to short the text based on how longer you want (default: 28 chars).
 
-## 🎨 Styling & Theming
+## Styling & Theming
 
 ### Tailwind CSS Configuration
 - **CSS Variables** for consistent theming
@@ -239,7 +239,7 @@ interface DashboardData {
 - Dark/light mode variable definitions
 - Base component styling
 
-## 🔧 Configuration
+## Configuration
 
 ### Path Aliases
 ```json
@@ -268,7 +268,7 @@ interface DashboardData {
 - Optimized chart displays
 - Responsive grid layouts
 
-## 🚀 Performance
+## Performance
 
 ### Optimizations
 - **React Server Components** for reduced client-side JavaScript
