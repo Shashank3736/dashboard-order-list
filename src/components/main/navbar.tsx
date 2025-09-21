@@ -3,7 +3,6 @@
 import React, { useState, useCallback } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import {
-  BellIcon,
   ClockFadingIcon,
   SearchIcon,
   SidebarIcon,
@@ -23,6 +22,7 @@ import Sidebar from "./sidebar"
 import LeftSidebar from "./left-sidebar"
 import Notifications from "./notifications"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 const iconHover = {
   whileHover: { y: -1, scale: 1.05 },
@@ -88,7 +88,9 @@ const Navbar = () => {
             <Breadcrumb className="truncate">
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href="/">Dashboards</BreadcrumbLink>
+                  <BreadcrumbLink asChild>
+                    <Link href={'/'}>Dahsboard</Link>
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>

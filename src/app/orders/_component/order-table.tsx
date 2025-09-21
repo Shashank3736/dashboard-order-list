@@ -18,18 +18,18 @@ import {
 
 const getStatusColor = (status: string) => {
   switch (status) {
-    case 'In Progress':
-      return 'text-blue-500';
-    case 'Complete':
-      return 'text-green-500';
-    case 'Pending':
-      return 'text-yellow-500';
-    case 'Approved':
-      return 'text-green-600';
-    case 'Rejected':
-      return 'text-red-500';
+    case "In Progress":
+      return { text: "text-[#8a8cd9]", bg: "bg-[#8a8cd9]" };
+    case "Complete":
+      return { text: "text-[#4aa785]", bg: "bg-[#4aa785]" };
+    case "Pending":
+      return { text: "text-[#59a8d4]", bg: "bg-[#59a8d4]" };
+    case "Approved":
+      return { text: "text-[#ffc555]", bg: "bg-[#ffc555]" };
+    case "Rejected":
+      return { text: "text-muted-foreground", bg: "bg-muted-foreground" };
     default:
-      return 'text-gray-500';
+      return { text: "text-gray-500", bg: "bg-gray-500" };
   }
 };
 
@@ -341,8 +341,8 @@ export const OrderTable = () => {
                 </td>
                 <td className="py-3 px-4">
                   <div className="flex items-center gap-2">
-                    <div className={cn("w-2 h-2 rounded-full", getStatusColor(order.status).replace('text-', 'bg-'))} />
-                    <span className={cn("text-sm font-medium", getStatusColor(order.status))}>
+                    <div className={cn("w-2 h-2 rounded-full", getStatusColor(order.status).bg)} />
+                    <span className={cn("text-sm font-medium", getStatusColor(order.status).text)}>
                       {order.status}
                     </span>
                   </div>

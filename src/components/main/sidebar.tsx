@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React, { useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { CollapsibleItem, CollapsibleItemProps } from '../ui/collaps'
+import Link from 'next/link'
 
 const DefaultIcon = () => {
   return (
@@ -219,11 +220,17 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
 
               <div className='pb-4 space-y-1'>
                 <p className='text-foreground/40 pb-2'>Dashboards</p>
-                {dashboardItems.map(item => (
+                {dashboardItems.map(item => item.childs ? (
                   <CollapsibleItem
                     key={item.title}
                     {...item}
                   />
+                ): (
+                  <Link key={item.title} href={'/'}>
+                    <CollapsibleItem
+                      {...item}
+                    />
+                  </Link>
                 ))}
               </div>
               <div className='pb-4 space-y-1'>
