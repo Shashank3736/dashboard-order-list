@@ -101,7 +101,7 @@ const Navbar = () => {
                 <BreadcrumbList>
                   <BreadcrumbItem>
                     <BreadcrumbLink asChild>
-                      <Link href={'/'}>Dahsboard</Link>
+                      <Link href={'/'}>Dashboard</Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator />
