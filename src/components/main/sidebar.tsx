@@ -199,7 +199,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', stiffness: 280, damping: 30 }}
-            className="fixed left-0 top-0 z-50 h-screen w-[85vw] max-w-[320px] xl:w-[212px] xl:max-w-none bg-background border-r shadow-xl xl:shadow-none"
+            className="fixed left-0 top-0 z-50 h-screen w-[85vw] max-w-[320px] lg:w-[212px] xl:max-w-none bg-background border-r shadow-xl xl:shadow-none"
           >
             <div className="h-full overflow-y-auto px-4 py-5 space-y-6">
               <div className='flex gap-2 items-center'>
