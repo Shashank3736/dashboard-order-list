@@ -254,7 +254,7 @@ interface DashboardData {
 - **TypeScript strict mode** enabled
 - **ES2017 target** with modern module resolution
 
-## 📱 Responsive Design
+## Responsive Design
 
 ### Breakpoints
 - **Mobile**: Default (< 768px)
