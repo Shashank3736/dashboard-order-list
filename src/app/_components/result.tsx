@@ -1,6 +1,6 @@
 import React from 'react';
 import { DashboardData } from '@/lib/data';
-import { StatCard } from "./stat-card"
+import { StatCard } from './stat-card';
 import { ChartBarStacked } from './mini-bar-chart';
 import { RevenueAreaChart } from './revenue-area-chart';
 import { RevenueByLocation } from './revenue-by-location';
@@ -13,7 +13,12 @@ type ResultProps = {
 const TopSellingTable = ({
   rows,
 }: {
-  rows: Array<{ name: string; price: number; quantity: number; amount: number }>;
+  rows: Array<{
+    name: string;
+    price: number;
+    quantity: number;
+    amount: number;
+  }>;
 }) => {
   const money = (v: number) =>
     v.toLocaleString('en-US', {
@@ -23,7 +28,7 @@ const TopSellingTable = ({
       maximumFractionDigits: 2,
     });
   return (
-    <div className="rounded-xl border bg-card p-4 shadow-sm w-full h-full">
+    <div className="bg-card h-full w-full rounded-xl border p-4 shadow-sm">
       <p className="pb-3 font-medium">Top Selling Products</p>
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
@@ -37,7 +42,10 @@ const TopSellingTable = ({
           </thead>
           <tbody>
             {rows.map((r, i) => (
-              <tr key={r.name} className={i !== rows.length - 1 ? 'border-b' : ''}>
+              <tr
+                key={r.name}
+                className={i !== rows.length - 1 ? 'border-b' : ''}
+              >
                 <td className="py-3 pr-4">{r.name}</td>
                 <td className="py-3 pr-4">{money(r.price)}</td>
                 <td className="py-3 pr-4">{r.quantity}</td>
@@ -56,35 +64,44 @@ const Result: React.FC<ResultProps> = ({ data }) => {
     <div className="contents">
       {/* Row 1 small stats */}
       <div className="col-span-1 row-span-1">
-        <StatCard 
-          title="Customers" 
-          value={data.customers.total.toLocaleString()} 
-          delta={data.customers.growth} 
-          className='bg-primary-blue text-black' />
+        <StatCard
+          title="Customers"
+          value={data.customers.total.toLocaleString()}
+          delta={data.customers.growth}
+          className="bg-primary-blue text-black"
+        />
       </div>
       <div className="col-span-1 row-span-1">
-        <StatCard title="Orders" value={data.orders.total.toLocaleString()} delta={data.orders.growth} />
+        <StatCard
+          title="Orders"
+          value={data.orders.total.toLocaleString()}
+          delta={data.orders.growth}
+        />
       </div>
 
       {/* Projections vs Actuals top-right big card */}
-      <div className="col-span-1 md:col-span-2 row-span-2">
+      <div className="col-span-1 row-span-2 md:col-span-2">
         <ChartBarStacked data={data.projectionsVsActuals} />
       </div>
 
       <div className="col-span-1 row-span-1">
-        <StatCard title="Revenue" value={`$${data.revenue.total.toLocaleString()}`} delta={data.revenue.growth} />
+        <StatCard
+          title="Revenue"
+          value={`$${data.revenue.total.toLocaleString()}`}
+          delta={data.revenue.growth}
+        />
       </div>
       <div className="col-span-1 row-span-1">
-        <StatCard 
-        title="Growth" 
-        value={`${data.growth.percentage}%`} 
-        delta={data.growth.change} 
-        className='bg-primary-purple text-black'
+        <StatCard
+          title="Growth"
+          value={`${data.growth.percentage}%`}
+          delta={data.growth.change}
+          className="bg-primary-purple text-black"
         />
       </div>
 
       {/* Revenue line chart - big wide card */}
-      <div className="col-span-1 md:col-span-2 lg:col-span-3 row-span-2">
+      <div className="col-span-1 row-span-2 md:col-span-2 lg:col-span-3">
         <RevenueAreaChart data={data.revenueWeekly} />
       </div>
 
@@ -100,7 +117,7 @@ const Result: React.FC<ResultProps> = ({ data }) => {
       </div>
 
       {/* Top Selling Products */}
-      <div className="col-span-1 md:col-span-2 lg:col-span-3 row-span-2">
+      <div className="col-span-1 row-span-2 md:col-span-2 lg:col-span-3">
         <TopSellingTable rows={data.topSellingProducts} />
       </div>
 

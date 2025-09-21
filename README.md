@@ -17,12 +17,14 @@ Live Link: https://dashboard-order-list.vercel.app/
 ## Technology Stack
 
 ### Core Framework
+
 - **Next.js 15.5.3** with App Router architecture
 - **React 19.1.0** with React Server Components (RSC)
 - **TypeScript 5** for type safety
 - **Turbopack** for fast development and builds
 
 ### Styling & UI
+
 - **Tailwind CSS v4** for utility-first styling
 - **shadcn/ui** components with "new-york" style variant
 - **Radix UI** primitives for accessible components
@@ -31,6 +33,7 @@ Live Link: https://dashboard-order-list.vercel.app/
 - **next-themes** for theme management
 
 ### Data & Utilities
+
 - **date-fns** for date manipulation and formatting
 - **Recharts** for data visualization and charts
 - **clsx** and **tailwind-merge** for conditional styling
@@ -40,22 +43,26 @@ Live Link: https://dashboard-order-list.vercel.app/
 Follow these steps from the project root:
 
 1. **Clone the repository**
+
 ```bash
 git clone https://github.com/Shashank3736/dashboard-order-list.git
 cd dashboard-order-list
 ```
 
 2. **Install dependencies**
+
 ```bash
 npm install
 ```
 
 3. **Build the application**
+
 ```bash
 npm run build
 ```
 
 4. **Start the production server**
+
 ```bash
 npm run start
 ```
@@ -74,9 +81,11 @@ npm run lint         # Run ESLint
 ```
 
 ### Development Server
+
 ```bash
 npm run dev
 ```
+
 Starts the development server with Turbopack for fast hot module replacement.
 
 ## Project Structure
@@ -128,7 +137,9 @@ src/
 ### Navigation Components
 
 #### `Navbar` (`src/components/main/navbar.tsx`)
+
 Main navigation bar with responsive design featuring:
+
 - Animated sidebar toggles with Framer Motion
 - Responsive search functionality (desktop/mobile)
 - Breadcrumb navigation
@@ -136,12 +147,15 @@ Main navigation bar with responsive design featuring:
 - Refresh functionality
 
 **Key Features:**
+
 - Mobile-first responsive design
 - Smooth animations and transitions
 - ARIA accessibility attributes
 
 #### `Sidebar` & `LeftSidebar` (`src/components/main/`)
+
 Collapsible sidebars for navigation and additional functionality:
+
 - Primary sidebar for main navigation
 - Secondary sidebar for additional tools
 - Overlay support for mobile devices
@@ -149,12 +163,15 @@ Collapsible sidebars for navigation and additional functionality:
 ### Dashboard Components
 
 #### `StatCard` (`src/app/_components/stat-card.tsx`)
+
 Displays key metrics with growth indicators:
+
 - Customer count, orders, revenue statistics
 - Growth percentage visualization
 - Responsive card layout
 
 #### Chart Components
+
 - **`DonutChart`**: Circular progress visualization for sales segments
 - **`MiniBarChart`**: Compact bar charts for quick data overview
 - **`RevenueAreaChart`**: Area charts for revenue trends over time
@@ -163,6 +180,7 @@ Displays key metrics with growth indicators:
 ### UI Components (shadcn/ui)
 
 All UI components follow the shadcn/ui design system:
+
 - **Consistent styling** with Tailwind CSS
 - **Accessibility-first** approach using Radix UI
 - **Customizable variants** with class-variance-authority
@@ -173,6 +191,7 @@ All UI components follow the shadcn/ui design system:
 ### Data Models (`src/lib/data.ts`)
 
 #### Core Types
+
 ```typescript
 // User profile with avatar generation
 type User = {
@@ -180,7 +199,7 @@ type User = {
   profileImage: string;
   gender: 'boy' | 'girl';
   id: number;
-}
+};
 
 // Order management
 type Order = {
@@ -190,7 +209,7 @@ type Order = {
   address: string;
   date: Date;
   status: 'In Progress' | 'Complete' | 'Pending' | 'Approved' | 'Rejected';
-}
+};
 
 // Dashboard analytics
 interface DashboardData {
@@ -204,6 +223,7 @@ interface DashboardData {
 ### Server Actions (`src/lib/actions.ts`)
 
 #### Key Functions
+
 - **`getNotifications()`**: Retrieves notifications with human-readable timestamps
 - **`getContacts()`**: Fetches user contact information
 - **`getActivities()`**: Returns user activities with profile images
@@ -213,6 +233,7 @@ interface DashboardData {
 ### Utilities (`src/lib/utils.ts`)
 
 #### Helper Functions
+
 - **`cn()`**: Combines class names with tailwind-merge
 - **`getReadableTime()`**: Formats dates into human-readable strings
 - **`shortifyText()`**: Method to short the text based on how longer you want (default: 28 chars).
@@ -220,11 +241,13 @@ interface DashboardData {
 ## Styling & Theming
 
 ### Tailwind CSS Configuration
+
 - **CSS Variables** for consistent theming
 - **Dark/light mode** support through CSS custom properties
 - **Responsive breakpoints** for mobile-first design
 
 ### Theme System
+
 ```typescript
 // Theme provider with system preference detection
 <ThemeProvider
@@ -235,6 +258,7 @@ interface DashboardData {
 ```
 
 ### Global Styles (`src/app/globals.css`)
+
 - CSS custom properties for colors
 - Dark/light mode variable definitions
 - Base component styling
@@ -242,6 +266,7 @@ interface DashboardData {
 ## Configuration
 
 ### Path Aliases
+
 ```json
 {
   "@/*": "./src/*"
@@ -249,6 +274,7 @@ interface DashboardData {
 ```
 
 ### Build Configuration
+
 - **Turbopack** enabled for faster builds
 - **Remote image patterns** configured for avatar.iran.liara.run
 - **TypeScript strict mode** enabled
@@ -257,12 +283,14 @@ interface DashboardData {
 ## Responsive Design
 
 ### Breakpoints
+
 - **Mobile**: Default (< 768px)
 - **Tablet**: md (768px+)
 - **Desktop**: lg (1024px+)
 - **Large Desktop**: xl (1280px+)
 
 ### Mobile Features
+
 - Collapsible navigation
 - Touch-friendly interactions
 - Optimized chart displays
@@ -271,6 +299,7 @@ interface DashboardData {
 ## Performance
 
 ### Optimizations
+
 - **React Server Components** for reduced client-side JavaScript
 - **Turbopack** for fast development builds
 - **Code splitting** with Next.js App Router

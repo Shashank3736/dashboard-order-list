@@ -1,22 +1,22 @@
-"use server";
+'use server';
 
-import { activities, dashboardData, getUsers, orders } from "./data";
-import { getReadableTime } from "./utils";
+import { activities, dashboardData, getUsers, orders } from './data';
+import { getReadableTime } from './utils';
 
 export type NotificationType = {
-    id: number;
-    type: "bug" | "user" | "subscription";
-    message: string;
-    createdAt: Date;
+  id: number;
+  type: 'bug' | 'user' | 'subscription';
+  message: string;
+  createdAt: Date;
 };
 
-export type NotificationResultType = NotificationType & { time: string }
+export type NotificationResultType = NotificationType & { time: string };
 export type AcitivitiesResultType = {
-    image: string;
-    user: number;
-    id: number;
-    message: string;
-    createdAt: string;
+  image: string;
+  user: number;
+  id: number;
+  message: string;
+  createdAt: string;
 };
 
 /**
@@ -26,33 +26,33 @@ export type AcitivitiesResultType = {
  * time string. If the notification was created today, the time is shown as "Today, hh:mm a".
  * Otherwise, a relative time (e.g., "12 hours ago") is provided.
  *
- * @returns {Promise<Array<NotificationType & { time: string }>>} 
+ * @returns {Promise<Array<NotificationType & { time: string }>>}
  *   A promise that resolves to an array of notifications, each with an additional `time` property.
  */
 export async function getNotifications() {
   const notifications: NotificationType[] = [
     {
       id: 1,
-      type: "bug",
-      message: "You have a bug that needs attention",
+      type: 'bug',
+      message: 'You have a bug that needs attention',
       createdAt: new Date(Date.now()),
     },
     {
       id: 2,
-      type: "user",
-      message: "New user registered",
+      type: 'user',
+      message: 'New user registered',
       createdAt: new Date(Date.now() - 59 * 60 * 1000),
     },
     {
       id: 3,
-      type: "bug",
-      message: "You have a bug that needs attention",
+      type: 'bug',
+      message: 'You have a bug that needs attention',
       createdAt: new Date(Date.now() - 12 * 60 * 60 * 1000),
     },
     {
       id: 4,
-      type: "subscription",
-      message: "Andi Lane subscribed to you",
+      type: 'subscription',
+      message: 'Andi Lane subscribed to you',
       createdAt: new Date(new Date().setHours(11, 59, 0, 0)),
     },
   ];
@@ -71,10 +71,10 @@ export async function getNotifications() {
 }
 
 export async function getContacts() {
-  return getUsers()
+  return getUsers();
 }
 
-export async function getActivities():Promise<AcitivitiesResultType[]> {
+export async function getActivities(): Promise<AcitivitiesResultType[]> {
   const users = getUsers();
 
   // Map activities to include user profile image instead of user id
@@ -83,7 +83,7 @@ export async function getActivities():Promise<AcitivitiesResultType[]> {
     return {
       ...activity,
       image: user?.profileImage || '',
-      createdAt: getReadableTime(activity.createdAt)
+      createdAt: getReadableTime(activity.createdAt),
     };
   });
 

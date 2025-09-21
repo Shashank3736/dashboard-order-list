@@ -1,35 +1,30 @@
-"use client"
+'use client';
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
-import { DashboardData } from "@/lib/data"
+} from '@/components/ui/chart';
+import { DashboardData } from '@/lib/data';
 
 interface BarProps {
-  data: DashboardData["projectionsVsActuals"];
+  data: DashboardData['projectionsVsActuals'];
 }
 
 const chartConfig = {
   actual: {
-    label: "Actual",
-    color: "hsl(var(--chart-1))",
+    label: 'Actual',
+    color: 'hsl(var(--chart-1))',
   },
   projection: {
-    label: "Projection",
-    color: "hsl(var(--chart-2))",
+    label: 'Projection',
+    color: 'hsl(var(--chart-2))',
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 export const ChartBarStacked: React.FC<BarProps> = ({ data }) => {
   // Transform data for the chart - adjust values to match expected scale
@@ -37,7 +32,7 @@ export const ChartBarStacked: React.FC<BarProps> = ({ data }) => {
     month,
     actual: data.values[index],
     projection: data.projectionValues[index] - data.values[index],
-  }))
+  }));
 
   return (
     <Card>
@@ -78,5 +73,5 @@ export const ChartBarStacked: React.FC<BarProps> = ({ data }) => {
         </ChartContainer>
       </CardContent>
     </Card>
-  )
-}
+  );
+};

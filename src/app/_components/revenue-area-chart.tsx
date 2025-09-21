@@ -1,23 +1,18 @@
-"use client"
+'use client';
 
-import { Line, LineChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Line, LineChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
-import { DashboardData } from "@/lib/data"
+} from '@/components/ui/chart';
+import { DashboardData } from '@/lib/data';
 
 interface RevenueAreaChartProps {
-  data: DashboardData["revenueWeekly"]
+  data: DashboardData['revenueWeekly'];
 }
 
 export const RevenueAreaChart: React.FC<RevenueAreaChartProps> = ({ data }) => {
@@ -25,34 +20,38 @@ export const RevenueAreaChart: React.FC<RevenueAreaChartProps> = ({ data }) => {
     month,
     currentWeek: data.chartData.currentWeekLine[index],
     previousWeek: data.chartData.previousWeekLine[index],
-  }))
-  
+  }));
+
   const chartConfig = {
     currentWeek: {
-      label: "Current Week",
-      color: "var(--chart-1)",
+      label: 'Current Week',
+      color: 'var(--chart-1)',
     },
     previousWeek: {
-      label: "Previous Week", 
-      color: "var(--chart-2)",
+      label: 'Previous Week',
+      color: 'var(--chart-2)',
     },
-  } satisfies ChartConfig
+  } satisfies ChartConfig;
 
   return (
-    <Card className="w-full h-full">
+    <Card className="h-full w-full">
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-6 text-lg font-medium">
           Revenue
-          <div className="flex flex-col md:flex-row items-center gap-6 text-sm font-normal">
+          <div className="flex flex-col items-center gap-6 text-sm font-normal md:flex-row">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-chart-1"></div>
+              <div className="bg-chart-1 h-2 w-2 rounded-full"></div>
               <span>Current Week</span>
-              <span className="font-medium">${data.currentWeek.toLocaleString()}</span>
+              <span className="font-medium">
+                ${data.currentWeek.toLocaleString()}
+              </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-chart-2"></div>
+              <div className="bg-chart-2 h-2 w-2 rounded-full"></div>
               <span>Previous Week</span>
-              <span className="font-medium">${data.previousWeek.toLocaleString()}</span>
+              <span className="font-medium">
+                ${data.previousWeek.toLocaleString()}
+              </span>
             </div>
           </div>
         </CardTitle>
@@ -68,9 +67,9 @@ export const RevenueAreaChart: React.FC<RevenueAreaChartProps> = ({ data }) => {
               bottom: 20,
             }}
           >
-            <CartesianGrid 
-              strokeDasharray="none" 
-              stroke="hsl(var(--border))" 
+            <CartesianGrid
+              strokeDasharray="none"
+              stroke="hsl(var(--border))"
               horizontal={true}
               vertical={false}
             />
@@ -79,18 +78,18 @@ export const RevenueAreaChart: React.FC<RevenueAreaChartProps> = ({ data }) => {
               tickLine={false}
               axisLine={false}
               tickMargin={16}
-              tick={{ fontSize: 12, fill: "hsl(var(--muted-foreground))" }}
+              tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }}
             />
             <YAxis
               tickLine={false}
               axisLine={false}
               tickMargin={16}
-              tick={{ fontSize: 12, fill: "hsl(var(--muted-foreground))" }}
+              tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }}
               tickFormatter={(value) => `${value}M`}
               domain={[0, 30]}
               ticks={[0, 10, 20, 30]}
             />
-            <ChartTooltip content={<ChartTooltipContent />} />  
+            <ChartTooltip content={<ChartTooltipContent />} />
             <Line
               dataKey="currentWeek"
               type="monotone"
@@ -111,5 +110,5 @@ export const RevenueAreaChart: React.FC<RevenueAreaChartProps> = ({ data }) => {
         </ChartContainer>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
