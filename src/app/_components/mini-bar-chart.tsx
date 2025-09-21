@@ -45,7 +45,7 @@ export const ChartBarStacked: React.FC<BarProps> = ({ data }) => {
         <CardTitle>Projections vs Actual</CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} className="max-h-[252px] w-full">
           <BarChart accessibilityLayer data={chartData} barSize={20}>
             <CartesianGrid vertical={false} />
             <XAxis
